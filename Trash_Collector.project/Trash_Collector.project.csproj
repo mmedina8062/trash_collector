@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -192,8 +193,17 @@
     <Compile Include="Migrations\201911120259582_initialMigrations.Designer.cs">
       <DependentUpon>201911120259582_initialMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911120448351_addedcustomermodel.cs" />
+    <Compile Include="Migrations\201911120448351_addedcustomermodel.Designer.cs">
+      <DependentUpon>201911120448351_addedcustomermodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911120450418_addedDBSetinIdentityfolder.cs" />
+    <Compile Include="Migrations\201911120450418_addedDBSetinIdentityfolder.Designer.cs">
+      <DependentUpon>201911120450418_addedDBSetinIdentityfolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -257,6 +267,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,6 +292,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911120259582_initialMigrations.resx">
       <DependentUpon>201911120259582_initialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911120448351_addedcustomermodel.resx">
+      <DependentUpon>201911120448351_addedcustomermodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911120450418_addedDBSetinIdentityfolder.resx">
+      <DependentUpon>201911120450418_addedDBSetinIdentityfolder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
