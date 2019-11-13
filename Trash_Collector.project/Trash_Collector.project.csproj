@@ -181,6 +181,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -188,21 +190,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911120259582_initialMigrations.cs" />
-    <Compile Include="Migrations\201911120259582_initialMigrations.Designer.cs">
-      <DependentUpon>201911120259582_initialMigrations.cs</DependentUpon>
+    <Compile Include="Migrations\201911130258398_deletedcustomerandemployeemodels.cs" />
+    <Compile Include="Migrations\201911130258398_deletedcustomerandemployeemodels.Designer.cs">
+      <DependentUpon>201911130258398_deletedcustomerandemployeemodels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911120448351_addedcustomermodel.cs" />
-    <Compile Include="Migrations\201911120448351_addedcustomermodel.Designer.cs">
-      <DependentUpon>201911120448351_addedcustomermodel.cs</DependentUpon>
+    <Compile Include="Migrations\201911130301486_readdedcustomermodel.cs" />
+    <Compile Include="Migrations\201911130301486_readdedcustomermodel.Designer.cs">
+      <DependentUpon>201911130301486_readdedcustomermodel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911120454001_addedforeignkeyincustomermodel.cs" />
-    <Compile Include="Migrations\201911120454001_addedforeignkeyincustomermodel.Designer.cs">
-      <DependentUpon>201911120454001_addedforeignkeyincustomermodel.cs</DependentUpon>
+    <Compile Include="Migrations\201911130303116_addedforeignkeytocustomermodel.cs" />
+    <Compile Include="Migrations\201911130303116_addedforeignkeytocustomermodel.Designer.cs">
+      <DependentUpon>201911130303116_addedforeignkeytocustomermodel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911130233489_addedemployeemodel.cs" />
-    <Compile Include="Migrations\201911130233489_addedemployeemodel.Designer.cs">
-      <DependentUpon>201911130233489_addedemployeemodel.cs</DependentUpon>
+    <Compile Include="Migrations\201911130306002_readdedemployeemodel.cs" />
+    <Compile Include="Migrations\201911130306002_readdedemployeemodel.Designer.cs">
+      <DependentUpon>201911130306002_readdedemployeemodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911130307359_addedforeignkeytoemployeemodel.cs" />
+    <Compile Include="Migrations\201911130307359_addedforeignkeytoemployeemodel.Designer.cs">
+      <DependentUpon>201911130307359_addedforeignkeytoemployeemodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -271,10 +277,24 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -290,17 +310,20 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201911120259582_initialMigrations.resx">
-      <DependentUpon>201911120259582_initialMigrations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911130258398_deletedcustomerandemployeemodels.resx">
+      <DependentUpon>201911130258398_deletedcustomerandemployeemodels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911120448351_addedcustomermodel.resx">
-      <DependentUpon>201911120448351_addedcustomermodel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911130301486_readdedcustomermodel.resx">
+      <DependentUpon>201911130301486_readdedcustomermodel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911120454001_addedforeignkeyincustomermodel.resx">
-      <DependentUpon>201911120454001_addedforeignkeyincustomermodel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911130303116_addedforeignkeytocustomermodel.resx">
+      <DependentUpon>201911130303116_addedforeignkeytocustomermodel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911130233489_addedemployeemodel.resx">
-      <DependentUpon>201911130233489_addedemployeemodel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911130306002_readdedemployeemodel.resx">
+      <DependentUpon>201911130306002_readdedemployeemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911130307359_addedforeignkeytoemployeemodel.resx">
+      <DependentUpon>201911130307359_addedforeignkeytoemployeemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

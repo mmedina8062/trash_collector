@@ -3,7 +3,7 @@ namespace Trash_Collector.project.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addedemployeemodel : DbMigration
+    public partial class addedforeignkeytoemployeemodel : DbMigration
     {
         public override void Up()
         {

@@ -36,10 +36,10 @@ namespace Trash_Collector.project.Models
 
         [Display(Name = "Suspend Service: End Date")]
         public DateTime SuspendEndDate { get; set; }
-        
+
         [Display(Name = "Account Balance")]
         public double AccountBalance { get; set; }
-        
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
