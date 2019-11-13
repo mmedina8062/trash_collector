@@ -181,7 +181,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -197,13 +196,18 @@
     <Compile Include="Migrations\201911120448351_addedcustomermodel.Designer.cs">
       <DependentUpon>201911120448351_addedcustomermodel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911120450418_addedDBSetinIdentityfolder.cs" />
-    <Compile Include="Migrations\201911120450418_addedDBSetinIdentityfolder.Designer.cs">
-      <DependentUpon>201911120450418_addedDBSetinIdentityfolder.cs</DependentUpon>
+    <Compile Include="Migrations\201911120454001_addedforeignkeyincustomermodel.cs" />
+    <Compile Include="Migrations\201911120454001_addedforeignkeyincustomermodel.Designer.cs">
+      <DependentUpon>201911120454001_addedforeignkeyincustomermodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911130233489_addedemployeemodel.cs" />
+    <Compile Include="Migrations\201911130233489_addedemployeemodel.Designer.cs">
+      <DependentUpon>201911130233489_addedemployeemodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -267,14 +271,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
-    <Content Include="Views\Customers\Create.cshtml" />
-    <Content Include="Views\Customers\Delete.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Customers\Edit.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -296,8 +296,11 @@
     <EmbeddedResource Include="Migrations\201911120448351_addedcustomermodel.resx">
       <DependentUpon>201911120448351_addedcustomermodel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911120450418_addedDBSetinIdentityfolder.resx">
-      <DependentUpon>201911120450418_addedDBSetinIdentityfolder.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911120454001_addedforeignkeyincustomermodel.resx">
+      <DependentUpon>201911120454001_addedforeignkeyincustomermodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911130233489_addedemployeemodel.resx">
+      <DependentUpon>201911130233489_addedemployeemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,13 +7,13 @@ namespace Trash_Collector.project.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addedDBSetinIdentityfolder : IMigrationMetadata
+    public sealed partial class addedforeignkeyincustomermodel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedDBSetinIdentityfolder));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedforeignkeyincustomermodel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911120450418_addedDBSetinIdentityfolder"; }
+            get { return "201911120454001_addedforeignkeyincustomermodel"; }
         }
         
         string IMigrationMetadata.Source
