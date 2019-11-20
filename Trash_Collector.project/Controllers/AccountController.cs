@@ -81,6 +81,11 @@ namespace Trash_Collector.project.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    ApplicationUser user = await UserManager.FindAsync(model.UserName, model.Password);
+                    if ((UserManager.IsInRole(user.Id, "Employee")))
+                    {
+                        return RedirectToAction("Index", "Employees");
+                    }
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");

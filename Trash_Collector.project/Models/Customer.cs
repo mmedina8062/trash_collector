@@ -11,6 +11,7 @@ namespace Trash_Collector.project.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
@@ -23,22 +24,29 @@ namespace Trash_Collector.project.Models
         public string State { get; set; }
 
         [Display(Name = "Zip Code")]
-        public string ZipCode { get; set; }
+        public int ZipCode { get; set; }
 
         [Display(Name = "Pickup Day")]
         public string PickupDay { get; set; }
 
-        [Display(Name = "Add Additional Pick Day")]
-        public DateTime AdditionalPickupDate { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Add Additional Pickup Date")]
+        public DateTime? AdditionalPickupDate { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Suspend Service: Start Date")]
-        public DateTime SuspendStartDate { get; set; }
+        public DateTime? SuspendStartDate { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Suspend Service: End Date")]
-        public DateTime SuspendEndDate { get; set; }
+        public DateTime? SuspendEndDate { get; set; }
 
         [Display(Name = "Account Balance")]
         public double AccountBalance { get; set; }
+        public bool ConfirmPickedup { get; set; }
 
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }

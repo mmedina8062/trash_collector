@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,9 +16,19 @@ namespace Trash_Collector.project.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employees
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search)
         {
-            return View(db.Employees.ToList());
+            var UserId = User.Identity.GetUserId();
+            Employee employee = db.Employees.Where(e => e.ApplicationId == UserId).FirstOrDefault();
+            var filteredCustomer = db.Customers.Where(c => c.ZipCode == employee.ZipCode && c.PickupDay == DateTime.Today.DayOfWeek.ToString() && c.ConfirmPickedup == false);
+
+            
+            if (searchBy == "Pickup Day")
+            {
+                return View(db.Customers.Where(c => c.PickupDay == search && c.ZipCode == employee.ZipCode).ToList());
+            }
+
+            return View(filteredCustomer);
         }
 
         // GET: Employees/Details/5
@@ -122,6 +133,29 @@ namespace Trash_Collector.project.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult PickupConfirmed(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult PickupConfirmed(Customer customer)
+        {
+            var pickupConfirmedCustomer = db.Customers.Find(customer.Id);
+            pickupConfirmedCustomer.AccountBalance += 19.99;
+            pickupConfirmedCustomer.ConfirmPickedup = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

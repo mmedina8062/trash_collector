@@ -210,6 +210,18 @@
     <Compile Include="Migrations\201911130307359_addedforeignkeytoemployeemodel.Designer.cs">
       <DependentUpon>201911130307359_addedforeignkeytoemployeemodel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911130354299_addedquestionmarktodatetime.cs" />
+    <Compile Include="Migrations\201911130354299_addedquestionmarktodatetime.Designer.cs">
+      <DependentUpon>201911130354299_addedquestionmarktodatetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911130358399_fixedadditionaldaytodate.cs" />
+    <Compile Include="Migrations\201911130358399_fixedadditionaldaytodate.Designer.cs">
+      <DependentUpon>201911130358399_fixedadditionaldaytodate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911190529163_addedboolconfrimpickuptocustomerclass.cs" />
+    <Compile Include="Migrations\201911190529163_addedboolconfrimpickuptocustomerclass.Designer.cs">
+      <DependentUpon>201911190529163_addedboolconfrimpickuptocustomerclass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -287,11 +299,6 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Customer\Create.cshtml" />
-    <Content Include="Views\Customer\Delete.cshtml" />
-    <Content Include="Views\Customer\Details.cshtml" />
-    <Content Include="Views\Customer\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,6 +331,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911130307359_addedforeignkeytoemployeemodel.resx">
       <DependentUpon>201911130307359_addedforeignkeytoemployeemodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911130354299_addedquestionmarktodatetime.resx">
+      <DependentUpon>201911130354299_addedquestionmarktodatetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911130358399_fixedadditionaldaytodate.resx">
+      <DependentUpon>201911130358399_fixedadditionaldaytodate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911190529163_addedboolconfrimpickuptocustomerclass.resx">
+      <DependentUpon>201911190529163_addedboolconfrimpickuptocustomerclass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

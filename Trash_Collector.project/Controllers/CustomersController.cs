@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -15,9 +16,11 @@ namespace Trash_Collector.project.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
-        public ActionResult Index()
+        public ActionResult Index(Employee employee)
         {
-            return View(db.Customers.ToList());
+            ViewBag.UserId = User.Identity.GetUserId();
+            var customer = db.Customers.ToList();
+            return View(customer);
         }
 
         // GET: Customers/Details/5
@@ -46,7 +49,7 @@ namespace Trash_Collector.project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,StreetAddress,City,State,ZipCode,PickupDay,AdditionalPickupDate,SuspendStartDate,SuspendEndDate,AccountBalance,ApplicationId")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,StreetAddress,City,State,ZipCode,PickupDay")] Customer customer)
         {
             if (ModelState.IsValid)
             {
