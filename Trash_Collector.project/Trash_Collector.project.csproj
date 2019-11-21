@@ -298,6 +298,7 @@
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\EmployeeIndex.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

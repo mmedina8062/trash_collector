@@ -22,13 +22,19 @@ namespace Trash_Collector.project.Controllers
             Employee employee = db.Employees.Where(e => e.ApplicationId == UserId).FirstOrDefault();
             var filteredCustomer = db.Customers.Where(c => c.ZipCode == employee.ZipCode && c.PickupDay == DateTime.Today.DayOfWeek.ToString() && c.ConfirmPickedup == false);
 
-            
+
             if (searchBy == "Pickup Day")
             {
                 return View(db.Customers.Where(c => c.PickupDay == search && c.ZipCode == employee.ZipCode).ToList());
             }
 
             return View(filteredCustomer);
+        }
+        public ActionResult EmployeeIndex()
+        {
+            ViewBag.UserId = User.Identity.GetUserId();
+            var employee = db.Employees.ToList();
+            return View(employee);
         }
 
         // GET: Employees/Details/5
@@ -134,7 +140,7 @@ namespace Trash_Collector.project.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult PickupConfirmed(int? id)
+        /*public ActionResult PickupConfirm(int? id)
         {
             if (id == null)
             {
@@ -145,17 +151,19 @@ namespace Trash_Collector.project.Controllers
             {
                 return HttpNotFound();
             }
-            return View(customer);
-        }
+            return View(customer);*/
+        //}
 
-        [HttpPost]
-        public ActionResult PickupConfirmed(Customer customer)
+        //[HttpPost]
+        public ActionResult PickupConfirmed(int Id)
         {
-            var pickupConfirmedCustomer = db.Customers.Find(customer.Id);
+            //var UserId = User.Identity.GetUserId();
+            var pickupConfirmedCustomer = db.Customers.Find(Id);
             pickupConfirmedCustomer.AccountBalance += 19.99;
             pickupConfirmedCustomer.ConfirmPickedup = true;
             db.SaveChanges();
             return RedirectToAction("Index");
+
         }
     }
 }
