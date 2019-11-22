@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -140,30 +141,31 @@ namespace Trash_Collector.project.Controllers
             }
             base.Dispose(disposing);
         }
-        /*public ActionResult PickupConfirm(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
-            {
-                return HttpNotFound();
-            }
-            return View(customer);*/
-        //}
-
-        //[HttpPost]
         public ActionResult PickupConfirmed(int Id)
         {
-            //var UserId = User.Identity.GetUserId();
             var pickupConfirmedCustomer = db.Customers.Find(Id);
             pickupConfirmedCustomer.AccountBalance += 19.99;
             pickupConfirmedCustomer.ConfirmPickedup = true;
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult CustomerDetails(int? id)
+        {
+            Customer customer = db.Customers.Find(id);
 
+            var address = customer.StreetAddress + "," + customer.City + "," + customer.State;
+            var Key = APIKey.googleAPI;
+            var requestUrl = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key=AIzaSyAlb9i4bHw634NtvaDuNWC1NHE1oTQ4O_8";
+            var result = new WebClient().DownloadString(requestUrl);
+            var jo = JObject.Parse(result);
+
+            var lat = jo["results"][0]["geometry"]["location"]["lat"];
+            var lng = jo["results"][0]["geometry"]["location"]["lng"];
+
+            customer.Lat = Convert.ToDouble(lat);
+            customer.Lng = Convert.ToDouble(lng);
+
+            return View(customer);
         }
     }
 }

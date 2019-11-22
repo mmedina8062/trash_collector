@@ -48,6 +48,12 @@ namespace Trash_Collector.project.Models
         public double AccountBalance { get; set; }
         public bool ConfirmPickedup { get; set; }
 
+        [NotMapped]
+        public double Lat { get; set; }
+
+        [NotMapped]
+        public double Lng { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
